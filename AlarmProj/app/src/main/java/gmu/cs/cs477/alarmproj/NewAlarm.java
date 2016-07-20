@@ -147,16 +147,6 @@ public class NewAlarm extends AppCompatActivity {
                 millis = cal.getTimeInMillis() + (AlarmManager.INTERVAL_DAY+1);
             else
                 millis = cal.getTimeInMillis();
-  /*          if(picky.getCurrentHour() > hour){
-            //    cal.add(Calendar.DATE, 1);
-                millis = millis + 86000000;
-                System.out.println("KOKOKO" + hour + " " + picky.getCurrentHour());
-            }
-            else if((picky.getCurrentHour() == hour) && (picky.getCurrentMinute() == minute)){
-             //   cal.add(Calendar.DATE, 1);
-                millis = millis + 86000000;
-            }*/
-            //cal.getTimeInMillis()
             if (yesButton.isChecked()) {
                 checky = "Yes";
                 manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, millis,
@@ -172,7 +162,6 @@ public class NewAlarm extends AppCompatActivity {
             Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent();
             intent.putExtra(NAME, namey.getText().toString());
-            //      intent.putExtra(PINTENT, pendingIntent);
             // Set result and finish this Activity
             setResult(Activity.RESULT_OK, intent);
             finish();
@@ -190,7 +179,6 @@ public class NewAlarm extends AppCompatActivity {
     public void backButton(View view) {
         Intent intent = new Intent();
         intent.putExtra(NAME, "");
-        //      intent.putExtra(PINTENT, pendingIntent);
         // Set result and finish this Activity
         setResult(Activity.RESULT_OK, intent);
         finish();

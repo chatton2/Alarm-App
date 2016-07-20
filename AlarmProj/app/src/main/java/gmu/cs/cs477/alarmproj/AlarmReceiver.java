@@ -48,14 +48,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (alarmUri == null) {
             alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         }
-  /*      ringtone = RingtoneManager.getRingtone(arg0, alarmUri);
-        ringtone.play();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        ringtone.stop();*/
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
         r = RingtoneManager.getRingtone(arg0, notification);
         Toast.makeText(arg0, mess, Toast.LENGTH_LONG).show();

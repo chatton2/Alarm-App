@@ -91,17 +91,14 @@ public class MainActivity extends AppCompatActivity {
                         switch (which) {
                             case 0:
 
-                        //        mDb.delete(mDbHelper.TABLE_NAME, "Name =?", null);
                                 String[] COLUMNS = new String[]{"Intent"};
                                 String selection = "Name =?";
                                 String[] args = {toDelete};
                                 Cursor result = mDb.query(mDbHelper.TABLE_NAME, COLUMNS, selection, args, null, null, null, null);
                                 result.moveToFirst();
 
-      //                          PendingIntent displayIntent = PendingIntent.getBroadcast(AddEditExpense.this, result.getString(0), alarmIntent, PendingIntent.FLAG_NO_CREATE);
                                 mDb.delete(mDbHelper.TABLE_NAME, "Name =?", new String[]{toDelete});
                                 myAdapter.remove(myAdapter.getItem(currentPos));
-//                                alarmList.get(toDelete).cancel();
                                 alarmList.remove(toDelete);
                                 Intent intent = new Intent(MainActivity.this, NewAlarm.class);
                                 intent.putExtra(ALARMID, result.getString(0));
@@ -133,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else {
-     //       String namey = data.getExtras().getString(NewAlarm.NAME);
             myAdapter.add(namey);
             alarmList.put(namey, (PendingIntent) (data.getExtras().get(NewAlarm.PINTENT)));
             id = id + 1;
@@ -149,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void doneAlarm(String name){
-     //   System.out.println("Whaaaaa");
         mDbHelper = new MyDbHelper(this);
         mDb = mDbHelper.getWritableDatabase();
         mDb.delete(mDbHelper.TABLE_NAME, "Name =?", new String[]{name});
